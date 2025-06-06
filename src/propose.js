@@ -5,7 +5,6 @@ import img2 from './assets/2.jpeg';
 import img3 from './assets/3.jpeg';
 import img4 from './assets/4.jpeg';
 import img5 from './assets/5.jpeg';
-import img6 from './assets/6.jpeg';
 import lagu from './assets/lagu2.mp3';
 
 const Propose = () => {
@@ -22,26 +21,19 @@ const Propose = () => {
         img2,
         img3,
         img4,
-        img5,
-        img6
+        img5
     ];
 
     const messages = [
-        "Hai sayangku...",
-        "Kamu adalah hadiah terindah di tahun ini yang tak terduga",
-        "Setiap hari bersamamu adalah anugerah",
-        "Aku ingin menghabiskan sisa hidupku bersamamu",
-        "Membangun keluarga kecil yang bahagia bersama",
-        "Aku mungkin gk sempurna, tapi aku selalu berusaha untuk menjadi yang terbaik untukmu",
-        "Aku ingin kamu menjadi bagian dari hidupku",
-        "Aku ingin kamu menjadi teman hidupku",
-        "Aku ingin kamu menjadi ibu dari anak-anakku",
-        "Aku ingin kamu menjadi istriku",
-        "Aku ingin kamu menjadi keluargaku",
-        "Aku ingin kamu menjadi segalanya bagiku",
-        "...",
-        "Hesti Oktafiani, will you marry me 💍?"
-
+        "Hai, Vitha Rahman...",
+        "Saya masih ingat dengan jelas saat pertama kali kita bertemu bukan di tempat yang biasa, bukan di dunia nyata, melainkan melalui aplikasi, sebuah cara yang tak pernah terbayangkan bisa membawa kita sejauh ini.",
+        "Pada saat itu, semuanya terasa seperti kebetulan, sebuah pertemuan yang tak pernah Saya duga, namun ternyata adalah takdir-Nya yang mempertemukan kita. Seperti yang tertulis dalam takdir-Nya, kita dipertemukan lewat sesuatu yang tidak terduga, bahkan hanya sebuah aplikasi yang awalnya terasa biasa saja.",
+        "Namun, Saya tahu saat itu ada sesuatu yang lebih dari sekadar percakapan pertama. Ada benang merah yang menghubungkan kita, sebuah ikatan yang bahkan tanpa kita sadari mulai tumbuh dengan sendirinya.",
+        "Saya masih ingat betapa hati ini ragu untuk melangkah lebih jauh, namun tetap ada dorongan untuk menghubungimu lebih lanjut. Saya memutuskan untuk memberanikan diri, mencoba menjalin percakapan yang lebih dalam, walaupun waktu itu Saya merasa seolah Saya tidak tahu arah.",
+        "Kemudian, kita sempat kehilangan kontak—hampir dua minggu lamanya. Itu adalah waktu yang cukup lama untuk membuat Saya bertanya-tanya, namun Saya percaya, semuanya ada dalam takdir-Nya. Terkadang, dalam hidup, jarak atau kekosongan sementara seperti itu justru menguatkan niat untuk mencari kembali.",
+        "Takdir, ternyata, membawa kita kembali pada satu titik pertemuan. Meskipun jarak waktu sempat memisahkan, Saya merasa ada sesuatu yang lebih besar yang terus mengingatkan kita untuk saling mencari dan terhubung kembali.",
+        "Dan kini, di sini kita berdiri mungkin dengan lebih banyak pemahaman, lebih banyak pelajaran dari perjalanan yang tidak pernah terbayangkan sebelumnya.",
+        "Vitha Rahman, Saya ingin melangkah lebih jauh lagi dalam perjalanan ini. Maukah kau berjalan bersama Saya, terus mencari arah bersama, meskipun kita tahu takdir seringkali tidak bisa kita pahami sepenuhnya? 💍"
     ];
 
     const toggleMute = () => {
@@ -97,9 +89,8 @@ const Propose = () => {
     };
 
     const buttonReject = () => {
-        alert("Tidak bisa menolak");
-    }
-
+        alert("Tidak bisa menolak 😝");
+    };
 
     useEffect(() => {
         startAutoPlay();
@@ -116,11 +107,10 @@ const Propose = () => {
         setIsAutoPlaying(true);
     };
 
-
     const sendToWhatsapp = async () => {
         const data = new FormData();
         data.append("target", "082290333669");
-        data.append("message", "Aku mau! 💕");
+        data.append("message", "Saya mau! 💕");
         data.append("url", "https://md.fonnte.com/images/wa-logo.png");
         data.append("schedule", "0");
         data.append("delay", "2");
@@ -135,11 +125,11 @@ const Propose = () => {
         });
 
         const res = await response.json();
-        if(res.detail == "success! message in queue"){
+        if (res.detail == "success! message in queue") {
             alert("Jawabanmu sudah terkirim ke Rizki");
+            window.location.reload()
         }
     };
-
 
     useEffect(() => {
         if (audioRef.current) {
@@ -176,7 +166,7 @@ const Propose = () => {
                     <img
                         src={photos[currentPhotoIndex]}
                         alt={`Memory ${currentPhotoIndex + 1}`}
-                        className="w-full h-64 object-cover transition-opacity duration-500"
+                        className="w-full h-80 object-cover transition-opacity duration-500"
                     />
                     <button
                         onClick={prevPhoto}
@@ -212,7 +202,7 @@ const Propose = () => {
                 )}
 
                 <div className="mb-8">
-                    <h2 className="text-3xl font-bold text-pink-600 mb-4 drop-shadow-sm">
+                    <h2 className={`text-3xl font-bold text-pink-600 mb-4 drop-shadow-sm ${showHeart ? 'z-0 blur-sm' : ''}`}>
                         {messages[step]}
                     </h2>
                 </div>
@@ -227,7 +217,7 @@ const Propose = () => {
                 )}
 
                 {showHeart && (
-                    <div className="flex gap-4 justify-center mt-8">
+                    <div className="flex gap-4 justify-center mt-8 z-10">
                         <button
                             className="bg-gradient-to-r from-red-500 to-rose-500 hover:from-red-600 hover:to-rose-600 text-white font-bold py-3 px-8 rounded-full transform transition hover:scale-105 shadow-lg"
                             onClick={buttonReject}
@@ -238,7 +228,7 @@ const Propose = () => {
                             className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-3 px-8 rounded-full transform transition hover:scale-105 shadow-lg"
                             onClick={sendToWhatsapp}
                         >
-                            Ya, aku mau! 💕
+                            Ya, Saya mau! 💕
                         </button>
                     </div>
                 )}
@@ -246,5 +236,6 @@ const Propose = () => {
         </div>
     );
 };
+
 
 export default Propose;
