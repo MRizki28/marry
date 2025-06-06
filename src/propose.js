@@ -33,7 +33,7 @@ const Propose = () => {
         "Kemudian, kita sempat kehilangan kontak—hampir dua minggu lamanya. Itu adalah waktu yang cukup lama untuk membuat Saya bertanya-tanya, namun Saya percaya, semuanya ada dalam takdir-Nya. Terkadang, dalam hidup, jarak atau kekosongan sementara seperti itu justru menguatkan niat untuk mencari kembali.",
         "Takdir, ternyata, membawa kita kembali pada satu titik pertemuan. Meskipun jarak waktu sempat memisahkan, Saya merasa ada sesuatu yang lebih besar yang terus mengingatkan kita untuk saling mencari dan terhubung kembali.",
         "Dan kini, di sini kita berdiri mungkin dengan lebih banyak pemahaman, lebih banyak pelajaran dari perjalanan yang tidak pernah terbayangkan sebelumnya.",
-        "Vitha Rahman, Saya ingin melangkah lebih jauh lagi dalam perjalanan ini. Maukah kau berjalan bersama Saya, terus mencari arah bersama, meskipun kita tahu takdir seringkali tidak bisa kita pahami sepenuhnya? 💍"
+        "Vitha Rahman, Saya ingin melangkah lebih jauh lagi dalam perjalanan ini. Maukah kamu berjalan bersama Saya, terus mencari arah bersama, meskipun kita tahu takdir seringkali tidak bisa kita pahami sepenuhnya? 💍"
     ];
 
     const toggleMute = () => {
